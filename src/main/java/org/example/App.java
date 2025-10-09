@@ -16,7 +16,7 @@ public class App extends Application {
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm()); // Karcsi elso komment
 
         stage.setScene(scene);
-        stage.setTitle("MyApp");
+        stage.setTitle("MyApp");  //Teszt
         stage.show();
     }
 
