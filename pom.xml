@@ -13,7 +13,7 @@
     <!-- Note: JavaFX 23 requires JDK 21 or Later -->
     <javafx.version>23.0.2</javafx.version>
     <maven.compiler.release>21</maven.compiler.release>
-    <main.class>org.example.Launcher</main.class>
+    <main.class>org.example.frontend.Launcher</main.class>
   </properties>
 
   <dependencies>

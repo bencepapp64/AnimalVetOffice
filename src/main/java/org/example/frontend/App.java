@@ -1,4 +1,4 @@
-package org.example;
+package org.example.frontend;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        var loader = new FXMLLoader(getClass().getResource("main.fxml"));
+        var loader = new FXMLLoader(getClass().getResource("/org/example/main.fxml"));
         var scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm()); // Karcsi elso komment
+        scene.getStylesheets().add(getClass().getResource("/org/example/style.css").toExternalForm()); // Karcsi elso komment
 
         stage.setScene(scene);
         stage.setTitle("MyApp");  //Teszt
