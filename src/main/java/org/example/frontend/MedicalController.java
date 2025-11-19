@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.backend.MedicalEvent;
+import org.example.backend.model.MedicalEvent;
 
 public class MedicalController {
 

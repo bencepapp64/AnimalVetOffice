@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.backend.Animal;
+import org.example.backend.model.Animal;
 
 public class AnimalsController {
 
