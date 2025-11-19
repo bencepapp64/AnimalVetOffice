@@ -10,10 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane id="mainBorderPane" fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <HBox alignment="CENTER" prefHeight="86.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                <children>
@@ -28,10 +27,10 @@
          <left>
             <VBox alignment="BASELINE_CENTER" prefHeight="394.0" prefWidth="146.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Tulajsonosok" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Állatok" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Orvosi események" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Statisztikák" />
+                  <Button fx:id="handleOwnersClick" mnemonicParsing="false" onAction="#handleOwnersClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Tulajsonosok" />
+                  <Button fx:id="handleAnimalsClick" mnemonicParsing="false" onAction="#handleAnimalsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Állatok" />
+                  <Button fx:id="handleMedicalActionsClick" mnemonicParsing="false" onAction="#handleMedicalActionsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Orvosi események" />
+                  <Button fx:id="handleStatisticsClick" mnemonicParsing="false" onAction="#handleStatisticsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Statisztikák" />
                </children>
                <padding>
                   <Insets top="20.0" />
