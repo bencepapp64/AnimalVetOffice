@@ -1,4 +1,4 @@
 package org.example.backend;
 
-public class OrvosiEsemeny {
+public class Owner {
 }

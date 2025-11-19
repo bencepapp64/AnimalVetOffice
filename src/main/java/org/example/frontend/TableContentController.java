@@ -6,7 +6,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.backend.Tulaj;
+import org.example.backend.Owner;
 
 public class TableContentController {
 
@@ -14,16 +14,16 @@ public class TableContentController {
     private TextField searchField;
 
     @FXML
-    private TableView<Tulaj> tableView;
+    private TableView<Owner> tableView;
 
     @FXML
-    private TableColumn<Tulaj, String> nameColumn;
+    private TableColumn<Owner, String> nameColumn;
 
     @FXML
-    private TableColumn<Tulaj, String> phoneColumn;
+    private TableColumn<Owner, String> phoneColumn;
 
     @FXML
-    private TableColumn<Tulaj, String> emailColumn;
+    private TableColumn<Owner, String> emailColumn;
 
     @FXML
     public void initialize() {

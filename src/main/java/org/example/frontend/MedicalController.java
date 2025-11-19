@@ -5,24 +5,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.backend.OrvosiEsemeny;
+import org.example.backend.MedicalEvent;
 
 public class MedicalController {
 
     @FXML
-    private TableView<OrvosiEsemeny> tableView;
+    private TableView<MedicalEvent> tableView;
 
     @FXML
-    private TableColumn<OrvosiEsemeny, String> idColumn;
+    private TableColumn<MedicalEvent, String> idColumn;
 
     @FXML
-    private TableColumn<OrvosiEsemeny, String> typeColumn;
+    private TableColumn<MedicalEvent, String> typeColumn;
 
     @FXML
-    private TableColumn<OrvosiEsemeny, String> dateColumn;
+    private TableColumn<MedicalEvent, String> dateColumn;
 
     @FXML
-    private TableColumn<OrvosiEsemeny, String> nameColumn;
+    private TableColumn<MedicalEvent, String> nameColumn;
 
     @FXML
     public void initialize() {

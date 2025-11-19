@@ -5,28 +5,28 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.backend.Allat;
+import org.example.backend.Animal;
 
 public class AnimalsController {
 
     @FXML
-    private TableView<Allat> tableView;
+    private TableView<Animal> tableView;
 
     @FXML
-    private TableColumn<Allat, String> idColumn;
+    private TableColumn<Animal, String> idColumn;
 
     @FXML
-    private TableColumn<Allat, String> breedColumn;
+    private TableColumn<Animal, String> breedColumn;
 
     @FXML
-    private TableColumn<Allat, String> ageColumn;
+    private TableColumn<Animal, String> ageColumn;
 
     @FXML
-    private TableColumn<Allat, String> diagnoseColumn;
+    private TableColumn<Animal, String> diagnoseColumn;
 
 
     @FXML
-    private TableColumn<Allat, String> nameColumn;
+    private TableColumn<Animal, String> nameColumn;
 
     @FXML
     public void initialize() {
