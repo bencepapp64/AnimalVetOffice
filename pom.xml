@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <javafx.plugin.version>0.0.8</javafx.plugin.version>
     <!-- Note: JavaFX 23 requires JDK 21 or Later -->
-    <javafx.version>23.0.2</javafx.version>
+    <javafx.version>25</javafx.version>
     <maven.compiler.release>21</maven.compiler.release>
     <main.class>org.example.frontend.Launcher</main.class>
   </properties>
@@ -62,7 +62,11 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>${javafx.plugin.version}</version>
         <configuration>
-          <mainClass>${main.class}</mainClass>
+            <mainClass>${main.class}</mainClass>
+            <options>
+                <option>--enable-native-access=ALL-UNNAMED</option>
+                <option>--enable-native-access=javafx.graphics</option>
+            </options>
         </configuration>
       </plugin>
       <plugin>
