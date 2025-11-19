@@ -4,10 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 
+
 // Szemán itt alkotott először
 public class MainController {
 
     public BorderPane mainBorderPane;
+
 
     @FXML
     private void initialize() {

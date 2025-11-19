@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.backend.SpringBackendManager;
 
 public class App extends Application {
 
@@ -18,6 +19,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setTitle("MyApp");  //Teszt
         stage.show();
+
+
     }
 
 }
