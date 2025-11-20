@@ -33,7 +33,7 @@ public class AnimalsController {
 
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("nev"));
+        diagnoseColumn.setCellValueFactory(new PropertyValueFactory<>("diagnozis"));
         breedColumn.setCellValueFactory(new PropertyValueFactory<>("fajta"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("kor"));
 

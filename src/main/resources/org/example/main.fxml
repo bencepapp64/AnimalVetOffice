@@ -27,7 +27,7 @@
          <left>
             <VBox alignment="BASELINE_CENTER" prefHeight="394.0" prefWidth="146.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="handleOwnersClick" mnemonicParsing="false" onAction="#handleOwnersClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Tulajsonosok" />
+                  <Button fx:id="handleOwnersClick" mnemonicParsing="false" onAction="#handleOwnersClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Tulajdonosok" />
                   <Button fx:id="handleAnimalsClick" mnemonicParsing="false" onAction="#handleAnimalsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Állatok" />
                   <Button fx:id="handleMedicalActionsClick" mnemonicParsing="false" onAction="#handleMedicalActionsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Orvosi események" />
                   <Button fx:id="handleStatisticsClick" mnemonicParsing="false" onAction="#handleStatisticsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Statisztikák" />
