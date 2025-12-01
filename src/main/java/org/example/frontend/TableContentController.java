@@ -41,7 +41,19 @@ public class TableContentController {
 
     @FXML
     public void handleNewClick() {
-        // TODO BACKEND: Új felvétel ablak megnyitása
+        try {
+            // Itt adjuk meg a "new_owner.fxml" nevét!
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("new_owner.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Új tulajdonos");
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

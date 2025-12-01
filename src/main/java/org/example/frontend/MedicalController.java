@@ -39,6 +39,21 @@ public class MedicalController {
 
     @FXML
     public void handleNewClick() {
-        System.out.println("Új orvosi esemény...");
+        try {
+
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("new_medical_event.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Új orvosi esemény");
+            stage.setScene(new javafx.scene.Scene(root));
+
+
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+            stage.showAndWait();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+    }
