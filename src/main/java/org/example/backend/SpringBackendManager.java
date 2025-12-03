@@ -1,6 +1,7 @@
 package org.example.backend;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import org.example.backend.model.Owner;
 import org.example.frontend.BackendManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,6 +19,13 @@ public class SpringBackendManager implements BackendManager {
         });
 
         ctx = SpringApplication.run(SpringDataFxApplication.class);
+
+        Owner o = (Owner) ctx.getBean("owner");
+        o.setName("Jakab");
+        o.setEmail("asd@asd.com");
+        o.setPhone("123456789");
+
+
     }
 
     @Override
