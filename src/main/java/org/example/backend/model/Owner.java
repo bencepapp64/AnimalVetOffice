@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Owner {
     @Id
     @GeneratedValue
-    long id;
+    Long id;
     String name;
     String phone;
     String email;
