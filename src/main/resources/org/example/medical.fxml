@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.frontend.MedicalController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.frontend.MedicalController">
    <children>
       <VBox prefHeight="400.0" prefWidth="601.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -22,7 +16,7 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </Region>
-                  <Button fx:id="handleNewClick" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Új" textFill="WHITE" />
+                  <Button fx:id="handleNewClick" mnemonicParsing="false" onAction="#handleNewClick" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Új" textFill="WHITE" />
                   <Button fx:id="handleEditClick" mnemonicParsing="false" prefHeight="27.0" prefWidth="106.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Szerkesztés" textFill="WHITE" />
                   <Button fx:id="handleDeleteClick" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Törlés" textFill="WHITE" />
                </children>
