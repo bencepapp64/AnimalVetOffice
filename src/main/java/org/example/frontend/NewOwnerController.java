@@ -19,6 +19,11 @@ public class NewOwnerController {
     @FXML
     private TextField emailField;
 
+    private Runnable refreshCallBack;
+
+    public void  setRefreshCallback(Runnable refreshCallBack) {
+        this.refreshCallBack = refreshCallBack;
+    }
 
     @FXML
     public void handleCancel() {
@@ -35,7 +40,9 @@ public class NewOwnerController {
 
         System.out.println("ÚJ TULAJDONOS MENTÉSE: " + name + ", " + phone + ", " + email);
         backend.saveOwner(name, phone, email);
+        if (refreshCallBack != null) refreshCallBack.run();
 
         handleCancel();
     }
+
 }

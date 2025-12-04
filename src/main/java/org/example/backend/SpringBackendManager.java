@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.List;
+
 public class SpringBackendManager implements BackendManager {
     private ConfigurableApplicationContext ctx;
 
@@ -41,4 +43,10 @@ public class SpringBackendManager implements BackendManager {
     public void saveOwner(String name, String phone, String email) {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveOwner(name, phone, email);
     }
+
+    public List<Owner> getOwners() {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getOwners();
+
+    }
+
 }

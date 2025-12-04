@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class SpringDataFxApplication implements CommandLineRunner {
 
@@ -41,5 +43,9 @@ public class SpringDataFxApplication implements CommandLineRunner {
     public void saveOwner(String name, String phone, String email) {
         Owner o =  Owner.builder().name(name).phone(phone).email(email).build();
         ownerRepository.save(o);
+    }
+
+    public List<Owner> getOwners(){
+        return ownerRepository.findAll();
     }
 }

@@ -46,12 +46,12 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/org/example/" + fxml));
         Parent root = loader.load();
-
         Object controller = loader.getController();
         if (controller instanceof TableContentController){
             ((TableContentController)controller).setBackend(backend);
-        }
+            ((TableContentController)controller).fillTable(); //Ezt nem szabad nezni
 
+        }
 
         Stage stage = new Stage();
         stage.setTitle(title);
