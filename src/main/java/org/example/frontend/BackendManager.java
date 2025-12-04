@@ -10,4 +10,5 @@ public interface BackendManager {
     public void test();
     public void saveOwner(String name, String phone, String email);
     public List<Owner> getOwners();
+    public void deleteOwnerById(Long id);
 }

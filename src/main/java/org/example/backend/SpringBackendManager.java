@@ -48,5 +48,9 @@ public class SpringBackendManager implements BackendManager {
         return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getOwners();
 
     }
+    public void deleteOwnerById(Long id) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).deleteOwnerById(id);
+
+    }
 
 }

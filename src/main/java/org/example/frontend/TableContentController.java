@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -79,6 +80,13 @@ public class TableContentController {
 
     @FXML
     public void handleDeleteClick() {
-        // TODO BACKEND: Törlés logika
+        Owner selectedOwner = tableView.getSelectionModel().getSelectedItem();
+        if (selectedOwner != null) {
+            backend.deleteOwnerById(selectedOwner.getId());
+            System.out.println("Deleted OwnerId: " + selectedOwner.getId());
+            fillTable();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Kérlek válassz ki egy sort a törléshez!").showAndWait();
+        }
     }
 }

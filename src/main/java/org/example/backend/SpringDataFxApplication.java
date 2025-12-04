@@ -48,4 +48,8 @@ public class SpringDataFxApplication implements CommandLineRunner {
     public List<Owner> getOwners(){
         return ownerRepository.findAll();
     }
+
+    public void deleteOwnerById(Long id){
+        ownerRepository.deleteById(id);
+    }
 }
