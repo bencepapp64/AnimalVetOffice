@@ -37,4 +37,8 @@ public class SpringBackendManager implements BackendManager {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).test();
     }
 
+    @Override
+    public void saveOwner(String name, String phone, String email) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveOwner(name, phone, email);
+    }
 }

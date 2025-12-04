@@ -37,4 +37,9 @@ public class SpringDataFxApplication implements CommandLineRunner {
 
         ownerRepository.save(o);
     }
+
+    public void saveOwner(String name, String phone, String email) {
+        Owner o =  Owner.builder().name(name).phone(phone).email(email).build();
+        ownerRepository.save(o);
+    }
 }

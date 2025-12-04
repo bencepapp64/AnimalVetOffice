@@ -3,8 +3,12 @@ package org.example.frontend;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 public class NewOwnerController {
+
+    @Setter
+    private BackendManager backend;
 
     @FXML
     private TextField nameField;
@@ -25,12 +29,12 @@ public class NewOwnerController {
     @FXML
     public void handleSave() {
 
-        String nev = nameField.getText();
-        String telefon = phoneField.getText();
+        String name = nameField.getText();
+        String phone = phoneField.getText();
         String email = emailField.getText();
 
-        System.out.println("ÚJ TULAJDONOS MENTÉSE: " + nev + ", " + telefon + ", " + email);
-
+        System.out.println("ÚJ TULAJDONOS MENTÉSE: " + name + ", " + phone + ", " + email);
+        backend.saveOwner(name, phone, email);
 
         handleCancel();
     }

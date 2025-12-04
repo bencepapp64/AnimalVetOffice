@@ -8,12 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lombok.Setter;
-import org.example.backend.SpringBackendManager;
 
 import java.io.IOException;
 
 
-// Szemán itt alkotott először
 public class MainController {
 
     @Setter
@@ -40,7 +38,7 @@ public class MainController {
     }
 
     public void handleStatisticsClick(ActionEvent actionEvent) {
-        backend.test();
+
     }
 
     private void openWindow(String fxml, String title) {
@@ -48,6 +46,12 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/org/example/" + fxml));
         Parent root = loader.load();
+
+        Object controller = loader.getController();
+        if (controller instanceof TableContentController){
+            ((TableContentController)controller).setBackend(backend);
+        }
+
 
         Stage stage = new Stage();
         stage.setTitle(title);

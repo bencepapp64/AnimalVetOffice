@@ -20,13 +20,11 @@ public class App extends Application {
 
         var loader = new FXMLLoader(getClass().getResource("/org/example/main.fxml"));
         var scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("/org/example/style.css").toExternalForm()); // Karcsi elso komment
-
-
+        scene.getStylesheets().add(getClass().getResource("/org/example/style.css").toExternalForm());
         ((MainController)loader.getController()).setBackend(backend);
 
         stage.setScene(scene);
-        stage.setTitle("AnimalVetOffice");  //Teszt
+        stage.setTitle("AnimalVetOffice");
         stage.show();
 
 
