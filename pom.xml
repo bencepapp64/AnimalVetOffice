@@ -41,6 +41,7 @@
       <dependency>
           <groupId>org.mariadb.jdbc</groupId>
           <artifactId>mariadb-java-client</artifactId>
+          <version>3.5.0</version>
       </dependency>
 
       <dependency>
@@ -169,6 +170,9 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>org.example.backend.SpringDataFxApplication</mainClass>
+            </configuration>
         </plugin>
     </plugins>
   </build>

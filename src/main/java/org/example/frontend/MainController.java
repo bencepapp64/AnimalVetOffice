@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import lombok.Setter;
 import org.example.backend.SpringBackendManager;
 
 import java.io.IOException;
@@ -15,14 +16,15 @@ import java.io.IOException;
 // Szemán itt alkotott először
 public class MainController {
 
-    private BackendManager backend = new SpringBackendManager();
+    @Setter
+    private BackendManager backend ;
 
     public BorderPane mainBorderPane;
 
 
     @FXML
     private void initialize() {
-        backend.start();
+
     }
 
     public void handleAnimalsClick(ActionEvent actionEvent) {
@@ -38,6 +40,7 @@ public class MainController {
     }
 
     public void handleStatisticsClick(ActionEvent actionEvent) {
+        backend.test();
     }
 
     private void openWindow(String fxml, String title) {
