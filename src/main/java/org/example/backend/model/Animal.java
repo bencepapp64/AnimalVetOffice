@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Animal {
     @Id
     @GeneratedValue
-    long id;
+    Long id;
     String breed;
     Integer age;
     String diagnose;

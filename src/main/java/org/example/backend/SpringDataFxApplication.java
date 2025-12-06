@@ -1,5 +1,7 @@
 package org.example.backend;
 
+import org.example.backend.model.Animal;
+import org.example.backend.model.AnimalRepository;
 import org.example.backend.model.Owner;
 import org.example.backend.model.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ public class SpringDataFxApplication implements CommandLineRunner {
 
     @Autowired
     OwnerRepository ownerRepository;
-
+    @Autowired
+    private AnimalRepository animalRepository;
 
 
     public static void main(String[] args) {
@@ -55,5 +58,20 @@ public class SpringDataFxApplication implements CommandLineRunner {
 
     public void updateOwner(Owner owner) {
         ownerRepository.save(owner);
+    }
+
+    public void saveAnimal(String breed, Integer age, String diagnose) {
+        Animal a = Animal.builder().breed(breed).age(age).diagnose(diagnose).build();
+        animalRepository.save(a);
+    }
+
+    public List<Animal> getAnimals(){
+        return animalRepository.findAll();
+    }
+
+    public void deleteAnimalById(Long id){animalRepository.deleteById(id);}
+
+    public void updateAnimal(Animal animal) {
+        animalRepository.save(animal);
     }
 }
