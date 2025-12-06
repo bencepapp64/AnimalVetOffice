@@ -52,4 +52,8 @@ public class SpringDataFxApplication implements CommandLineRunner {
     public void deleteOwnerById(Long id){
         ownerRepository.deleteById(id);
     }
+
+    public void updateOwner(Owner owner) {
+        ownerRepository.save(owner);
+    }
 }

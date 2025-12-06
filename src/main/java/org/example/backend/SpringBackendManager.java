@@ -53,4 +53,8 @@ public class SpringBackendManager implements BackendManager {
 
     }
 
+    public void updateOwner(Owner owner) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateOwner(owner);
+    }
+
 }

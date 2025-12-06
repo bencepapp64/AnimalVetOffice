@@ -4,8 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
+import org.example.backend.model.Owner;
 
 public class NewOwnerController {
+
+    private Owner editingOwner;
 
     @Setter
     private BackendManager backend;
@@ -31,6 +34,14 @@ public class NewOwnerController {
         stage.close();
     }
 
+    public void setEditingOwner(Owner owner) {
+        this.editingOwner = owner;
+
+        nameField.setText(owner.getName());
+        phoneField.setText(owner.getPhone());
+        emailField.setText(owner.getEmail());
+    }
+
     @FXML
     public void handleSave() {
 
@@ -38,8 +49,18 @@ public class NewOwnerController {
         String phone = phoneField.getText();
         String email = emailField.getText();
 
-        System.out.println("ÚJ TULAJDONOS MENTÉSE: " + name + ", " + phone + ", " + email);
-        backend.saveOwner(name, phone, email);
+        if (editingOwner == null) {
+            backend.saveOwner(name, phone, email);
+            System.out.println("ÚJ TULAJDONOS MENTÉSE: " + name + ", " + phone + ", " + email);
+        } else {
+            editingOwner.setName(name);
+            editingOwner.setPhone(phone);
+            editingOwner.setEmail(email);
+
+            backend.updateOwner(editingOwner);
+            System.out.println("TULAJDONOS MÓDOSÍTVA: " + name + ", " + phone + ", " + email);
+        }
+
         if (refreshCallBack != null) refreshCallBack.run();
 
         handleCancel();

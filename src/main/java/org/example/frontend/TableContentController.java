@@ -51,7 +51,7 @@ public class TableContentController {
     public void fillTable(){
         List<Owner> owners = backend.getOwners();
         ObservableList<Owner> data = FXCollections.observableArrayList(owners);
-        tableView.setItems(data);
+        tableView.getItems().setAll(data);
     }
 
     @FXML
@@ -75,7 +75,30 @@ public class TableContentController {
 
     @FXML
     public void handleEditClick() {
-        // TODO BACKEND: Szerkesztés logika
+        Owner selectedOwner = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedOwner == null) {
+            new Alert(Alert.AlertType.WARNING, "Kérlek válassz ki egy sort a szerkesztéshez!").showAndWait();
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/new_owner.fxml"));
+            Parent root = loader.load();
+
+            NewOwnerController controller = loader.getController();
+            controller.setBackend(backend);
+            controller.setRefreshCallback(this::fillTable);
+            controller.setEditingOwner(selectedOwner);
+
+            Stage stage = new Stage();
+            stage.setTitle("Tulajdonos szerkesztése");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -17,7 +17,7 @@
                      </padding>
                   </Region>
                   <Button fx:id="handleNewClick" mnemonicParsing="false" onAction="#handleNewClick" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Új" textFill="WHITE" />
-                  <Button fx:id="handleEditClick" mnemonicParsing="false" prefHeight="27.0" prefWidth="106.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Szerkesztés" textFill="WHITE" />
+                  <Button fx:id="handleEditClick" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="27.0" prefWidth="106.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Szerkesztés" textFill="WHITE" />
                   <Button fx:id="handleDeleteClick" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Törlés" textFill="WHITE" />
                </children>
                <padding>
