@@ -59,8 +59,8 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
-    public void saveAnimal(String breed, Integer age, String diagnose) {
-        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveAnimal(breed, age, diagnose);
+    public void saveAnimal(String name, String breed, Integer age, String diagnose) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveAnimal(name, breed, age, diagnose);
     }
 
     @Override

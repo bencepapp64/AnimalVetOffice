@@ -60,8 +60,8 @@ public class SpringDataFxApplication implements CommandLineRunner {
         ownerRepository.save(owner);
     }
 
-    public void saveAnimal(String breed, Integer age, String diagnose) {
-        Animal a = Animal.builder().breed(breed).age(age).diagnose(diagnose).build();
+    public void saveAnimal(String name, String breed, Integer age, String diagnose) {
+        Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).build();
         animalRepository.save(a);
     }
 

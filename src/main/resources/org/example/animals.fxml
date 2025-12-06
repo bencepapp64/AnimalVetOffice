@@ -17,8 +17,8 @@
                      </padding>
                   </Region>
                   <Button fx:id="handleNewClick" mnemonicParsing="false" onAction="#handleNewClick" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Új" textFill="WHITE" />
-                  <Button fx:id="handleEditClick" mnemonicParsing="false" prefHeight="27.0" prefWidth="106.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Szerkesztés" textFill="WHITE" />
-                  <Button fx:id="handleDeleteClick" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Törlés" textFill="WHITE" />
+                  <Button fx:id="handleEditClick" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="27.0" prefWidth="106.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Szerkesztés" textFill="WHITE" />
+                  <Button fx:id="handleDeleteClick" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #444444; -fx-border-color: white; -fx-border-radius: 1;" text="Törlés" textFill="WHITE" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -29,7 +29,7 @@
             </HBox>
             <TableView fx:id="tableView" prefHeight="322.0" prefWidth="600.0" style="-fx-base: #333333; -fx-control-inner-background: #333333; -fx-control-inner-background: transparent;" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="72.0" text="Id" />
+                <TableColumn fx:id="nameColumn" prefWidth="72.0" text="Név" />
                 <TableColumn fx:id="breedColumn" prefWidth="220.0" text="Faj" />
                   <TableColumn fx:id="ageColumn" prefWidth="74.0" text="Életkor" />
                   <TableColumn fx:id="diagnoseColumn" prefWidth="215.0" text="Diagnózis" />

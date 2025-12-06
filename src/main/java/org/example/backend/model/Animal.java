@@ -17,6 +17,7 @@ public class Animal {
     @Id
     @GeneratedValue
     Long id;
+    String name;
     String breed;
     Integer age;
     String diagnose;

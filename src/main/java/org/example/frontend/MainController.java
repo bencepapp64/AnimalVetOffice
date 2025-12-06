@@ -53,6 +53,11 @@ public class MainController {
 
         }
 
+        if (controller instanceof AnimalsController) {
+            ((AnimalsController) controller).setBackend(backend);
+            ((AnimalsController) controller).fillTable();
+        }
+
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.setScene(new Scene(root));
