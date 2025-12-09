@@ -68,11 +68,9 @@ public class NewMedicalEventController {
             doctorField.setText(event.getName());
             datePicker.setValue(event.getDate());
 
-            if (backend != null && event.getAnimalId() != null) {
-                Animal animal = backend.getAnimalById(event.getAnimalId());
-                if (animal != null) {
-                    animalComboBox.getSelectionModel().select(animal);
-                }
+            if (backend != null && event.getAnimal() != null) {
+                Animal currentAnimal = event.getAnimal();
+                animalComboBox.getSelectionModel().select(currentAnimal);
             }
         }
     }
@@ -86,17 +84,18 @@ public class NewMedicalEventController {
             return;
         }
 
+        Integer animalId = selectedAnimal.getId().intValue();
         String name = doctorField.getText();
         String type = typeField.getText();
         LocalDate date = datePicker.getValue();
 
         if (editingMedicalEvent == null) {
-            backend.saveMedicalEvent(selectedAnimal.getId().intValue(), type, date, name);
+            backend.saveMedicalEvent(animalId, type, date, name);
             System.out.println("ÚJ ESEMÉNY MENTÉSE");
         } else {
             editingMedicalEvent.setName(name);
             editingMedicalEvent.setType(type);
-            editingMedicalEvent.setAnimalId(selectedAnimal.getId().intValue());
+            editingMedicalEvent.setAnimal(selectedAnimal);
             editingMedicalEvent.setDate(date);
 
             backend.updateMedicalEvent(editingMedicalEvent);

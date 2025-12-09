@@ -1,5 +1,6 @@
 package org.example.frontend;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -41,10 +42,19 @@ public class MedicalController {
     @FXML
     public void initialize() {
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        idColumn.setCellValueFactory(cellData -> {
+            MedicalEvent event = cellData.getValue();
+            if (event != null && event.getAnimal() != null) {
+                return new SimpleStringProperty(event.getAnimal().getName());
+            } else {
+                return new SimpleStringProperty("HIBA");
+            }
+        });
 
         tableView.setItems(FXCollections.observableArrayList());
 

@@ -10,4 +10,7 @@ import java.util.List;
 public interface AnimalRepository extends JpaRepository<Animal,Long> {
     @Query("SELECT a FROM Animal a LEFT JOIN FETCH a.owner")
     List<Animal> findAllWithOwners();
+
+    @Query("SELECT a FROM Animal a LEFT JOIN FETCH a.owner LEFT JOIN FETCH a.medicalEvents WHERE a.id = :id")
+    Animal findByIdWithAllRelations(Long id);
 }

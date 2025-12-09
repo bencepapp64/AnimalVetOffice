@@ -105,13 +105,19 @@ public class SpringDataFxApplication implements CommandLineRunner {
         return animal.orElse(null);
     }
 
+    public Animal getAnimalByIdForSave(Integer animalId) {
+        if (animalId == null) return null;
+        return animalRepository.findById(animalId.longValue()).orElse(null);
+    }
+
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
-        MedicalEvent m =  MedicalEvent.builder().animalId(animalId).type(type).date(date).name(name).build();
+        Animal animal = getAnimalByIdForSave(animalId);
+        MedicalEvent m =  MedicalEvent.builder().animal(animal).type(type).date(date).name(name).build();
         medicalEventRepository.save(m);
     }
 
     public List<MedicalEvent> getMedicalEvents(){
-        return medicalEventRepository.findAll();
+        return medicalEventRepository.findAllWithAnimals();
     }
 
     public void deleteMedicalEventById(Long id){
