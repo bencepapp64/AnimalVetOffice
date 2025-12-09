@@ -58,6 +58,11 @@ public class MainController {
             ((AnimalsController) controller).fillTable();
         }
 
+        if (controller instanceof MedicalController){
+            ((MedicalController) controller).setBackend(backend);
+            ((MedicalController) controller).fillTable();
+        }
+
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.setScene(new Scene(root));

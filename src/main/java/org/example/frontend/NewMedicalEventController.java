@@ -37,7 +37,7 @@ public class NewMedicalEventController {
     }
 
     public void loadAnimals() {
-        if (backend == null) return;
+        //if (backend == null) return;
 
         List<Animal> animals = backend.getAnimals();
 
