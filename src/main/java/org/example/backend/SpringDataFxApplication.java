@@ -1,14 +1,12 @@
 package org.example.backend;
 
-import org.example.backend.model.Animal;
-import org.example.backend.model.AnimalRepository;
-import org.example.backend.model.Owner;
-import org.example.backend.model.OwnerRepository;
+import org.example.backend.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
@@ -18,6 +16,8 @@ public class SpringDataFxApplication implements CommandLineRunner {
     OwnerRepository ownerRepository;
     @Autowired
     private AnimalRepository animalRepository;
+    @Autowired
+    private MedicalEventRepository medicalEventRepository;
 
 
     public static void main(String[] args) {
@@ -69,9 +69,28 @@ public class SpringDataFxApplication implements CommandLineRunner {
         return animalRepository.findAll();
     }
 
-    public void deleteAnimalById(Long id){animalRepository.deleteById(id);}
+    public void deleteAnimalById(Long id){
+        animalRepository.deleteById(id);
+    }
 
     public void updateAnimal(Animal animal) {
         animalRepository.save(animal);
+    }
+
+    public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
+        MedicalEvent m =  MedicalEvent.builder().animalId(animalId).type(type).date(date).name(name).build();
+        medicalEventRepository.save(m);
+    }
+
+    public List<MedicalEvent> getMedicalEvents(){
+        return medicalEventRepository.findAll();
+    }
+
+    public void deleteMedicalEventById(Long id){
+        medicalEventRepository.deleteById(id);
+    }
+
+    public void updateMedicalEvent(MedicalEvent medicalEvent) {
+        medicalEventRepository.save(medicalEvent);
     }
 }

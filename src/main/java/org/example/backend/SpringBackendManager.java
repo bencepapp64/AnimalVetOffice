@@ -2,6 +2,7 @@ package org.example.backend;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.example.backend.model.Animal;
+import org.example.backend.model.MedicalEvent;
 import org.example.backend.model.Owner;
 import org.example.backend.model.OwnerRepository;
 import org.example.frontend.BackendManager;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class SpringBackendManager implements BackendManager {
@@ -76,6 +78,26 @@ public class SpringBackendManager implements BackendManager {
     @Override
     public void updateAnimal(Animal animal) {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateAnimal(animal);
+    }
+
+    @Override
+    public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveMedicalEvent(animalId, type, date, name);
+    }
+
+    @Override
+    public List<MedicalEvent> getMedicalEvents() {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getMedicalEvents();
+    }
+
+    @Override
+    public void deleteMedicalEventById(Long id) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).deleteMedicalEventById(id);
+    }
+
+    @Override
+    public void updateMedicalEvent(MedicalEvent medicalEvent) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateMedicalEvent(medicalEvent);
     }
 
 

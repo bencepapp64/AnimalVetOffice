@@ -2,7 +2,9 @@ package org.example.frontend;
 
 import org.example.backend.model.Animal;
 import org.example.backend.model.Owner;
+import org.example.backend.model.MedicalEvent;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BackendManager {
@@ -19,4 +21,9 @@ public interface BackendManager {
     public List<Animal> getAnimals();
     public void deleteAnimalById(Long id);
     public void updateAnimal(Animal animal);
+
+    public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name);
+    public List<MedicalEvent> getMedicalEvents();
+    public void deleteMedicalEventById(Long id);
+    public void updateMedicalEvent(MedicalEvent medicalEvent);
 }

@@ -18,7 +18,8 @@ import java.time.LocalDate;
 public class MedicalEvent {
     @Id
     @GeneratedValue
-    long id;
+    Long id;
+    Integer animalId;
     String type;
     LocalDate date;
     String name;
