@@ -28,4 +28,6 @@ public interface BackendManager {
     public List<MedicalEvent> getMedicalEvents();
     public void deleteMedicalEventById(Long id);
     public void updateMedicalEvent(MedicalEvent medicalEvent);
+
+    public List<Integer> getNumbersOfOwnersAnimalsEvents();
 }

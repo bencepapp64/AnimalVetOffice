@@ -110,5 +110,8 @@ public class SpringBackendManager implements BackendManager {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateMedicalEvent(medicalEvent);
     }
 
-
+    @Override
+    public List<Integer> getNumbersOfOwnersAnimalsEvents() {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getNumbersOfOwnersAnimalsEvents();
+    }
 }

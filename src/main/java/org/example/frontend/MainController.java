@@ -1,5 +1,6 @@
 package org.example.frontend;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 import lombok.Setter;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class MainController {
@@ -37,9 +39,7 @@ public class MainController {
         openWindow("medical.fxml", "Orvosi események");
     }
 
-    public void handleStatisticsClick(ActionEvent actionEvent) {
-
-    }
+    public void handleStatisticsClick(ActionEvent actionEvent) {openWindow("statistics.fxml", "Statisztikák"); }
 
     private void openWindow(String fxml, String title) {
     try {
@@ -62,6 +62,12 @@ public class MainController {
             ((MedicalController) controller).setBackend(backend);
             ((MedicalController) controller).fillTable();
         }
+
+        if (controller instanceof StatisticsController){
+            ((StatisticsController) controller).setBackend(backend);
+            ((StatisticsController) controller).fillNumbers();
+        }
+
 
         Stage stage = new Stage();
         stage.setTitle(title);

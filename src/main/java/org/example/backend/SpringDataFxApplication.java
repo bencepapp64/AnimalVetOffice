@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -127,4 +128,17 @@ public class SpringDataFxApplication implements CommandLineRunner {
     public void updateMedicalEvent(MedicalEvent medicalEvent) {
         medicalEventRepository.save(medicalEvent);
     }
+
+    public List<Integer> getNumbersOfOwnersAnimalsEvents() {
+        int numbersOfOwners = (int)ownerRepository.count() ;
+        int numbersOfAnimals =  (int)animalRepository.count() ;
+        int numbersOfEvents =  (int)medicalEventRepository.count() ;
+
+        List<Integer> list = new ArrayList<>();
+        list.add(numbersOfOwners);
+        list.add(numbersOfAnimals);
+        list.add(numbersOfEvents);
+        return list;
+    }
+
 }

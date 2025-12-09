@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.Label?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.frontend.StatisticsController">
+   <children>
+      <Text layoutX="115.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tulajdonosok száma:" />
+      <Text layoutX="115.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Állatok száma:" />
+      <Text layoutX="115.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orvosi események száma:" />
+      <Label fx:id="numberOwners" style="-fx-background-color: #333333; -fx-text-fill: black; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" layoutX="300.0" layoutY="105.0" />
+      <Label fx:id="numberAnimals" style="-fx-background-color: #333333; -fx-text-fill: black; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" layoutX="300.0" layoutY="154.0" />
+      <Label fx:id="numberEvents" style="-fx-background-color: #333333; -fx-text-fill: black; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" layoutX="300.0" layoutY="199.0" />
+   </children>
+</AnchorPane>
