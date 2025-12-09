@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringDataFxApplication implements CommandLineRunner {
@@ -75,6 +76,21 @@ public class SpringDataFxApplication implements CommandLineRunner {
 
     public void updateAnimal(Animal animal) {
         animalRepository.save(animal);
+    }
+
+    public Animal getAnimalById(Integer animalId) {
+        if (animalId == null) {
+            return null;
+        }
+
+        // 1. Konvertálja az Integer ID-t a repository által várt Long ID-re
+        Long id = animalId.longValue();
+
+        // 2. Használja a findById metódust, és kezelje az Optional-t
+        Optional<Animal> animal = animalRepository.findById(id);
+
+        // 3. Visszatérés az állattal, vagy null, ha nem található
+        return animal.orElse(null);
     }
 
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {

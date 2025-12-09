@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.frontend.NewMedicalEventController">
+<AnchorPane prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.frontend.NewMedicalEventController">
     <children>
         <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="30.0" prefHeight="340.0" prefWidth="350.0" spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
             <children>
-                <Label text="Új orvosi esemény felvétele" textFill="WHITE">
+                <Label text="Új Orvosi Esemény" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
@@ -35,23 +27,26 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label text="Állat ID:" textFill="WHITE" GridPane.rowIndex="0">
+                        <Label text="Állat:" textFill="WHITE" GridPane.rowIndex="0">
                             <font><Font size="14.0" /></font>
                         </Label>
-                        <Label text="Esemény típusa:" textFill="WHITE" GridPane.rowIndex="1">
-                            <font><Font size="14.0" /></font>
-                        </Label>
-                        <Label text="Időpont:" textFill="WHITE" GridPane.rowIndex="2">
-                            <font><Font size="14.0" /></font>
-                        </Label>
-                        <Label text="Orvos neve:" textFill="WHITE" GridPane.rowIndex="3">
-                            <font><Font size="14.0" /></font>
-                        </Label>
+                        <ComboBox fx:id="animalComboBox" prefWidth="250" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                        <TextField fx:id="animalIdField" promptText="Pl. 123" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TextField fx:id="typeField" promptText="Pl. Oltás" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="datePicker" prefWidth="250.0" style="-fx-background-color: #555555;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="doctorField" promptText="Pl. Dr. Kovács" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Típus:" textFill="WHITE" GridPane.rowIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="typeField" promptText="Vizsgálat/Oltás" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Orvos:" textFill="WHITE" GridPane.rowIndex="2">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="doctorField" promptText="Dr. Kovács Béla" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Dátum:" textFill="WHITE" GridPane.rowIndex="3">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                        <DatePicker fx:id="datePicker" prefWidth="250" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
                     </children>
                 </GridPane>
 

@@ -81,6 +81,11 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
+    public Animal getAnimalById(Integer animalId) {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getAnimalById(animalId);
+    }
+
+    @Override
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveMedicalEvent(animalId, type, date, name);
     }
