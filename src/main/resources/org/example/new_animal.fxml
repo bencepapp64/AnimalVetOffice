@@ -25,6 +25,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
                         <Label text="Név:" textFill="WHITE" GridPane.rowIndex="0">
@@ -44,6 +45,12 @@
                         <TextField fx:id="diagnoseField" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="breedField" promptText="Vizsla" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="ageField" promptText="3" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Tulajdonos:" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="ownerComboBox" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #555555; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>
 

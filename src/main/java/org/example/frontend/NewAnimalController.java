@@ -1,11 +1,16 @@
 package org.example.frontend;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.backend.model.Animal;
 import org.example.backend.model.Owner;
+
+import java.util.List;
 
 public class NewAnimalController {
 
@@ -24,11 +29,37 @@ public class NewAnimalController {
     private TextField breedField;
     @FXML
     private TextField ageField;
+    @FXML
+    private ComboBox<Owner> ownerComboBox;
 
     private Runnable refreshCallBack;
 
     public void  setRefreshCallback(Runnable refreshCallBack) {
         this.refreshCallBack = refreshCallBack;
+    }
+
+    public void loadOwners() {
+        //if (backend == null) return;
+
+        List<Owner> owners = backend.getOwners();
+
+        ownerComboBox.setItems(FXCollections.observableArrayList(owners));
+
+        ownerComboBox.setCellFactory(cb -> new ListCell<>() {
+            @Override
+            protected void updateItem(Owner item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getName());
+            }
+        });
+
+        ownerComboBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(Owner item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getName());
+            }
+        });
     }
 
     @FXML
@@ -48,6 +79,8 @@ public class NewAnimalController {
 
     @FXML
     public void handleSave() {
+        Owner selectedOwner = ownerComboBox.getValue();
+
         String name = nameField.getText();
         String diagnose = diagnoseField.getText();
         String breed = breedField.getText();
@@ -56,8 +89,8 @@ public class NewAnimalController {
 
 
         if (editingAnimal == null) {
-            backend.saveAnimal(name, breed, Integer.parseInt(age), diagnose);
-            System.out.println("ÚJ ÁLLAT MENTÉSE: " + name + " (" + breed + "), " + age + " éves, diagnózis: " + diagnose);
+            backend.saveAnimal(name, breed, Integer.parseInt(age), diagnose, selectedOwner.getId().intValue());
+            System.out.println("ÚJ ÁLLAT MENTÉSE: " + name + " (" + breed + "), " + age + " éves, diagnózis: " + diagnose + " Tulajdonos: " + selectedOwner.getId().intValue());
         } else {
             editingAnimal.setName(name);
             editingAnimal.setBreed(breed);

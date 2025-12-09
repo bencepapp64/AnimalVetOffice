@@ -82,7 +82,7 @@ public class MedicalController {
     public void handleDeleteClick() {
         MedicalEvent selectedMedicalEvent = tableView.getSelectionModel().getSelectedItem();
         if (selectedMedicalEvent != null) {
-            backend.deleteAnimalById(selectedMedicalEvent.getId());
+            backend.deleteMedicalEventById(selectedMedicalEvent.getId());
             System.out.println("Deleted MedicalId: " + selectedMedicalEvent.getId());
             fillTable();
         } else {
@@ -106,6 +106,7 @@ public class MedicalController {
             NewMedicalEventController controller = loader.getController();
             controller.setBackend(backend);
             controller.setRefreshCallback(this::fillTable);
+            controller.loadAnimals();
             controller.setEditingMedicalEvent(selectedMedicalEvent);
 
             Stage stage = new Stage();

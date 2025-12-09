@@ -61,8 +61,20 @@ public class SpringDataFxApplication implements CommandLineRunner {
         ownerRepository.save(owner);
     }
 
-    public void saveAnimal(String name, String breed, Integer age, String diagnose) {
-        Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).build();
+    public Owner getOwnerById(Integer ownerId) {
+        if (ownerId == null) {
+            return null;
+        }
+
+        Long id = ownerId.longValue();
+
+        Optional<Owner> owner = ownerRepository.findById(id);
+
+        return owner.orElse(null);
+    }
+
+    public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId) {
+        Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).ownerId(ownerId).build();
         animalRepository.save(a);
     }
 
@@ -83,13 +95,10 @@ public class SpringDataFxApplication implements CommandLineRunner {
             return null;
         }
 
-        // 1. Konvertálja az Integer ID-t a repository által várt Long ID-re
         Long id = animalId.longValue();
 
-        // 2. Használja a findById metódust, és kezelje az Optional-t
         Optional<Animal> animal = animalRepository.findById(id);
 
-        // 3. Visszatérés az állattal, vagy null, ha nem található
         return animal.orElse(null);
     }
 

@@ -39,6 +39,9 @@ public class AnimalsController {
     private TableColumn<Animal, String> diagnoseColumn;
 
     @FXML
+    private TableColumn<Animal, String> ownerColumn;
+
+    @FXML
     public void initialize() {
 
 
@@ -46,6 +49,7 @@ public class AnimalsController {
         diagnoseColumn.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
         breedColumn.setCellValueFactory(new PropertyValueFactory<>("breed"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
+        ownerColumn.setCellValueFactory(new PropertyValueFactory<>("ownerId"));
 
         tableView.setItems(FXCollections.observableArrayList());
 
@@ -65,8 +69,11 @@ public class AnimalsController {
             loader.setLocation(getClass().getResource("/org/example/new_animal.fxml"));
             Parent root = loader.load();
 
-            ((NewAnimalController)loader.getController()).setBackend(backend);
-            ((NewAnimalController)loader.getController()).setRefreshCallback(this::fillTable);
+            NewAnimalController controller = loader.getController();
+            controller.setBackend(backend);
+            controller.setRefreshCallback(this::fillTable);
+            controller.loadOwners();
+
             Stage stage = new Stage();
             stage.setTitle("Új állat");
             stage.setScene(new Scene(root));
@@ -105,6 +112,7 @@ public class AnimalsController {
             NewAnimalController controller = loader.getController();
             controller.setBackend(backend);
             controller.setRefreshCallback(this::fillTable);
+            controller.loadOwners();
             controller.setEditingAnimal(selectedAnimal);
 
             Stage stage = new Stage();

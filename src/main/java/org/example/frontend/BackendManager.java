@@ -16,8 +16,9 @@ public interface BackendManager {
     public List<Owner> getOwners();
     public void deleteOwnerById(Long id);
     public void updateOwner(Owner owner);
+    public Owner getOwnerById(Integer ownerId);
 
-    public void saveAnimal(String name, String breed, Integer age, String diagnose);
+    public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId);
     public List<Animal> getAnimals();
     public void deleteAnimalById(Long id);
     public void updateAnimal(Animal animal);

@@ -33,6 +33,7 @@
                 <TableColumn fx:id="breedColumn" prefWidth="220.0" text="Faj" />
                   <TableColumn fx:id="ageColumn" prefWidth="74.0" text="Életkor" />
                   <TableColumn fx:id="diagnoseColumn" prefWidth="215.0" text="Diagnózis" />
+                  <TableColumn fx:id="ownerColumn" prefWidth="215.0" text="Tulajdonos ID" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

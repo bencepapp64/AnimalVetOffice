@@ -21,4 +21,5 @@ public class Animal {
     String breed;
     Integer age;
     String diagnose;
+    Integer ownerId;
 }
