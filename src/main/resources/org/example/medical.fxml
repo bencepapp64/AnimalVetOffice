@@ -29,7 +29,7 @@
             </HBox>
             <TableView fx:id="tableView" prefHeight="322.0" prefWidth="600.0" style="-fx-base: #333333; -fx-control-inner-background: #333333; -fx-control-inner-background: transparent;" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="55.0" text="Állat ID" />
+                <TableColumn fx:id="idColumn" prefWidth="55.0" text="Állat Neve" />
                 <TableColumn fx:id="typeColumn" prefWidth="181.0" text="Típus" />
                   <TableColumn fx:id="dateColumn" prefWidth="157.0" text="Dátum" />
                   <TableColumn fx:id="nameColumn" prefWidth="188.0" text="Orvos neve" />
