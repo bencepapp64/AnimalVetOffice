@@ -58,7 +58,7 @@ public class MedicalController {
 
         tableView.setItems(FXCollections.observableArrayList());
 
-        // TODO: Backend adatbázis lekérdezés helye
+
     }
 
     public void fillTable(){

@@ -16,7 +16,6 @@ public class MedicalEvent {
     @Id
     @GeneratedValue
     Long id;
-//    Integer animalId;
     String type;
     LocalDate date;
     String name;

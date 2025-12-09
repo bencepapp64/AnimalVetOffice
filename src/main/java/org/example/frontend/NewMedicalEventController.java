@@ -37,7 +37,7 @@ public class NewMedicalEventController {
     }
 
     public void loadAnimals() {
-        //if (backend == null) return;
+
 
         List<Animal> animals = backend.getAnimals();
 
@@ -106,7 +106,7 @@ public class NewMedicalEventController {
         handleCancel();
     }
 
-    // --- MÉGSE ---
+
     @FXML
     public void handleCancel() {
         Stage stage = (Stage) typeField.getScene().getWindow();

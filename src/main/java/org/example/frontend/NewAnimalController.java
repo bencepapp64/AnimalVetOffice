@@ -40,7 +40,7 @@ public class NewAnimalController {
     }
 
     public void loadOwners() {
-        //if (backend == null) return;
+
 
         List<Owner> owners = backend.getOwners();
 

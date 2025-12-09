@@ -21,7 +21,6 @@ public class Animal {
     String breed;
     Integer age;
     String diagnose;
-//    Integer ownerId;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
     private Owner owner;

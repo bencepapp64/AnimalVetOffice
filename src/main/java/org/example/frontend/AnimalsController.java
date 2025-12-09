@@ -50,7 +50,7 @@ public class AnimalsController {
         diagnoseColumn.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
         breedColumn.setCellValueFactory(new PropertyValueFactory<>("breed"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-//        ownerColumn.setCellValueFactory(new PropertyValueFactory<>("Owner.name"));
+
 
         ownerColumn.setCellValueFactory(cellData -> {
             Animal animal = cellData.getValue();
@@ -63,7 +63,7 @@ public class AnimalsController {
 
         tableView.setItems(FXCollections.observableArrayList());
 
-        // TODO: Itt hívhatja majd a backend az adatbázis lekérdezést
+
     }
 
     public void fillTable(){
