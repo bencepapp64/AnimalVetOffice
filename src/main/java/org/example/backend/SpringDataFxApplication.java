@@ -50,7 +50,7 @@ public class SpringDataFxApplication implements CommandLineRunner {
     }
 
     public List<Owner> getOwners(){
-        return ownerRepository.findAll();
+        return ownerRepository.findAllWithAnimals();
     }
 
     public void deleteOwnerById(Long id){
@@ -74,19 +74,22 @@ public class SpringDataFxApplication implements CommandLineRunner {
     }
 
     public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId) {
-        Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).ownerId(ownerId).build();
+        Owner owner = getOwnerById(ownerId);
+        Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).owner(owner).build();
         animalRepository.save(a);
     }
 
     public List<Animal> getAnimals(){
-        return animalRepository.findAll();
+        return animalRepository.findAllWithOwners();
     }
 
     public void deleteAnimalById(Long id){
         animalRepository.deleteById(id);
     }
 
-    public void updateAnimal(Animal animal) {
+    public void updateAnimal(Animal animal, Integer ownerId) {
+        Owner owner = getOwnerById(ownerId);
+        animal.setOwner(owner);
         animalRepository.save(animal);
     }
 

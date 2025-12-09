@@ -21,7 +21,7 @@ public interface BackendManager {
     public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId);
     public List<Animal> getAnimals();
     public void deleteAnimalById(Long id);
-    public void updateAnimal(Animal animal);
+    public void updateAnimal(Animal animal, Integer ownerId);
     public Animal getAnimalById(Integer animalId);
 
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name);

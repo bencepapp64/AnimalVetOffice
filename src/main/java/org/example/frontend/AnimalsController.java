@@ -1,5 +1,6 @@
 package org.example.frontend;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,7 +50,16 @@ public class AnimalsController {
         diagnoseColumn.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
         breedColumn.setCellValueFactory(new PropertyValueFactory<>("breed"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-        ownerColumn.setCellValueFactory(new PropertyValueFactory<>("ownerId"));
+//        ownerColumn.setCellValueFactory(new PropertyValueFactory<>("Owner.name"));
+
+        ownerColumn.setCellValueFactory(cellData -> {
+            Animal animal = cellData.getValue();
+            if (animal != null && animal.getOwner() != null) {
+                return new SimpleStringProperty(animal.getOwner().getName());
+            } else {
+                return new SimpleStringProperty("Nincs tulajdonos");
+            }
+        });
 
         tableView.setItems(FXCollections.observableArrayList());
 

@@ -1,12 +1,11 @@
 package org.example.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.backend.model.Owner;
 
 @Data
 @AllArgsConstructor
@@ -21,5 +20,8 @@ public class Animal {
     String breed;
     Integer age;
     String diagnose;
-    Integer ownerId;
+//    Integer ownerId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 }

@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import lombok.Setter;
 import org.example.backend.model.Animal;
 import org.example.backend.model.Owner;
@@ -60,6 +61,18 @@ public class NewAnimalController {
                 setText(empty || item == null ? null : item.getName());
             }
         });
+
+        ownerComboBox.setConverter(new StringConverter<Owner>() {
+            @Override
+            public String toString(Owner object) {
+                return (object == null) ? null : object.getName(); // <-- CSAK A NEVET ADJA VISSZA
+            }
+
+            @Override
+            public Owner fromString(String string) {
+                return null; // Nem szükséges
+            }
+        });
     }
 
     @FXML
@@ -75,6 +88,10 @@ public class NewAnimalController {
         diagnoseField.setText(animal.getDiagnose());
         breedField.setText(animal.getBreed());
         ageField.setText(String.valueOf(animal.getAge()));
+
+        if (animal.getOwner() != null) {
+            ownerComboBox.getSelectionModel().select(animal.getOwner());
+        }
     }
 
     @FXML
@@ -90,14 +107,14 @@ public class NewAnimalController {
 
         if (editingAnimal == null) {
             backend.saveAnimal(name, breed, Integer.parseInt(age), diagnose, selectedOwner.getId().intValue());
-            System.out.println("ÚJ ÁLLAT MENTÉSE: " + name + " (" + breed + "), " + age + " éves, diagnózis: " + diagnose + " Tulajdonos: " + selectedOwner.getId().intValue());
+            System.out.println("ÚJ ÁLLAT MENTÉSE: " + name + " (" + breed + "), " + age + " éves, diagnózis: " + diagnose + " Tulajdonos ID: " + selectedOwner.getId().intValue());
         } else {
             editingAnimal.setName(name);
             editingAnimal.setBreed(breed);
             editingAnimal.setAge(Integer.parseInt(age));
             editingAnimal.setDiagnose(diagnose);
 
-            backend.updateAnimal(editingAnimal);
+            backend.updateAnimal(editingAnimal, selectedOwner.getId().intValue());
             System.out.println("ÁLLAT MÓDOSÍTVA: " + name + " (" + breed + "), " + age + " éves, diagnózis: " + diagnose);
         }
 

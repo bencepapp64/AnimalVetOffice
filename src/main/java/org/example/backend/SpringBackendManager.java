@@ -81,8 +81,8 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
-    public void updateAnimal(Animal animal) {
-        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateAnimal(animal);
+    public void updateAnimal(Animal animal, Integer ownerId) {
+        ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).updateAnimal(animal, ownerId);
     }
 
     @Override
