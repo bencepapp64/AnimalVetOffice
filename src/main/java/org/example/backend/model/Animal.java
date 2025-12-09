@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString(exclude = {"medicalEvent", "owner"})
+@ToString(exclude = {"medicalEvents", "owner"})
 public class Animal {
     @Id
     @GeneratedValue
