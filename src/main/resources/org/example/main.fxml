@@ -25,12 +25,24 @@
             </HBox>
          </top>
          <left>
-            <VBox alignment="BASELINE_CENTER" prefHeight="394.0" prefWidth="146.0" spacing="15.0" BorderPane.alignment="CENTER">
+            <VBox alignment="BASELINE_CENTER" prefHeight="394.0" prefWidth="640.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="handleOwnersClick" mnemonicParsing="false" onAction="#handleOwnersClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Tulajdonosok" />
-                  <Button fx:id="handleAnimalsClick" mnemonicParsing="false" onAction="#handleAnimalsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Állatok" />
-                  <Button fx:id="handleMedicalActionsClick" mnemonicParsing="false" onAction="#handleMedicalActionsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Orvosi események" />
-                  <Button fx:id="handleStatisticsClick" mnemonicParsing="false" onAction="#handleStatisticsClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1;" text="Statisztikák" />
+                  <Button fx:id="handleOwnersClick" mnemonicParsing="false" onAction="#handleOwnersClick" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1; -fx-cursor: hand;" text="Tulajdonosok">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="handleAnimalsClick" mnemonicParsing="false" onAction="#handleAnimalsClick" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1; -fx-cursor: hand;" text="Állatok">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="handleMedicalActionsClick" mnemonicParsing="false" onAction="#handleMedicalActionsClick" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1; -fx-cursor: hand;" text="Orvosi események">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="handleStatisticsClick" mnemonicParsing="false" onAction="#handleStatisticsClick" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #333333; -fx-text-fill: white; fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 1; -fx-cursor: hand;" text="Statisztikák">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
                <padding>
                   <Insets top="20.0" />
