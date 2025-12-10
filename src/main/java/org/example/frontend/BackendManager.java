@@ -20,6 +20,7 @@ public interface BackendManager {
     public Owner getOwnerById(Integer ownerId);
 
     public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId);
+    public List<Animal> searchAnimals(String searchTerm);
     public List<Animal> getAnimals();
     public void deleteAnimalById(Long id);
     public void updateAnimal(Animal animal, Integer ownerId);

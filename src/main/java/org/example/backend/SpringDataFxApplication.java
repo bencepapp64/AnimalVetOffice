@@ -119,6 +119,14 @@ public class SpringDataFxApplication implements CommandLineRunner {
         return animalRepository.findById(animalId.longValue()).orElse(null);
     }
 
+    public List<Animal> searchAnimals(String searchTerm) {
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            return animalRepository.findAllWithOwners();
+        }
+        String normalizedSearchTerm = "%" + searchTerm.toLowerCase().trim() + "%";
+        return animalRepository.searchAnimals(normalizedSearchTerm);
+    }
+
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
         Animal animal = getAnimalByIdForSave(animalId);
         MedicalEvent m =  MedicalEvent.builder().animal(animal).type(type).date(date).name(name).build();

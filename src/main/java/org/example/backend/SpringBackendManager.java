@@ -66,6 +66,11 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
+    public List<Owner> searchOwners(String searchTerm) {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).searchOwners(searchTerm);
+    }
+
+    @Override
     public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId) {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveAnimal(name, breed, age, diagnose, ownerId);
     }
@@ -91,8 +96,8 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
-    public List<Owner> searchOwners(String searchTerm) {
-        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).searchOwners(searchTerm);
+    public List<Animal> searchAnimals(String searchTerm) {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).searchAnimals(searchTerm);
     }
 
     @Override

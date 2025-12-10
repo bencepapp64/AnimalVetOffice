@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.backend.model.Animal;
@@ -26,6 +27,9 @@ public class AnimalsController {
 
     @FXML
     private TableView<Animal> tableView;
+
+    @FXML
+    private TextField searchField;
 
     @FXML
     private TableColumn<Animal, String> nameColumn;
@@ -70,6 +74,25 @@ public class AnimalsController {
         List<Animal> animals = backend.getAnimals();
         ObservableList<Animal> data = FXCollections.observableArrayList(animals);
         tableView.getItems().setAll(data);
+        search();
+    }
+
+    public void search(){
+        String searchTerm = searchField.getText();
+        List<Animal> animals = backend.searchAnimals(searchTerm);
+
+        ObservableList<Animal> data = FXCollections.observableArrayList(animals);
+        tableView.getItems().setAll(data);
+    }
+
+    @FXML
+    public void handleSearchAction() {
+        search();
+    }
+
+    @FXML
+    public void handleSearchKeyReleased() {
+        search();
     }
 
     @FXML
