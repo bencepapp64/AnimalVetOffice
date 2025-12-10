@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SpringDataFxApplication implements CommandLineRunner {
@@ -143,6 +144,31 @@ public class SpringDataFxApplication implements CommandLineRunner {
 
     public void updateMedicalEvent(MedicalEvent medicalEvent) {
         medicalEventRepository.save(medicalEvent);
+    }
+
+    public List<MedicalEvent> searchMedicalEvents(String searchTerm){
+        if (searchTerm == null || searchTerm.trim().isEmpty()){
+            return medicalEventRepository.findAllWithAnimals();
+        }
+
+        String lowerCaseTerm = searchTerm.toLowerCase().trim();
+        List<MedicalEvent> filteredList = medicalEventRepository.searchMedicalEvents(lowerCaseTerm);
+
+        List<MedicalEvent> dateMatches = filteredList.stream().filter(event -> {
+            String dateString = event.getDate().toString();
+            return dateString.contains(lowerCaseTerm);
+        }).collect(Collectors.toList());
+
+        List<MedicalEvent> allEvents = medicalEventRepository.findAllWithAnimals();
+
+        return allEvents.stream().filter(event -> {
+            String dateString = event.getDate() != null ? event.getDate().toString() : "";
+
+            return event.getType().toLowerCase().contains(lowerCaseTerm) ||
+                    event.getName().toLowerCase().contains(lowerCaseTerm) ||
+                    (event.getAnimal() != null && event.getAnimal().getName().toLowerCase().contains(lowerCaseTerm)) ||
+                    dateString.contains(lowerCaseTerm);
+        }).collect(Collectors.toList());
     }
 
     public List<Integer> getNumbersOfOwnersAnimalsEvents() {

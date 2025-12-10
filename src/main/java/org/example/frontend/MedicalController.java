@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.backend.model.Animal;
@@ -26,6 +27,9 @@ public class MedicalController {
 
     @FXML
     private TableView<MedicalEvent> tableView;
+
+    @FXML
+    private TextField searchField;
 
     @FXML
     private TableColumn<MedicalEvent, String> idColumn;
@@ -65,6 +69,25 @@ public class MedicalController {
         List<MedicalEvent> events = backend.getMedicalEvents();
         ObservableList<MedicalEvent> data = FXCollections.observableArrayList(events);
         tableView.getItems().setAll(data);
+        search();
+    }
+
+    public void search(){
+        String searchTerm = searchField.getText();
+        List<MedicalEvent> medicalEvents = backend.searchMedicalEvents(searchTerm);
+
+        ObservableList<MedicalEvent> data = FXCollections.observableArrayList(medicalEvents);
+        tableView.getItems().setAll(data);
+    }
+
+    @FXML
+    public void handleSearchAction() {
+        search();
+    }
+
+    @FXML
+    public void handleSearchKeyReleased() {
+        search();
     }
 
     @FXML

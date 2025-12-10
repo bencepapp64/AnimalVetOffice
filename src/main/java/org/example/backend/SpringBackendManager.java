@@ -124,4 +124,8 @@ public class SpringBackendManager implements BackendManager {
     public List<Integer> getNumbersOfOwnersAnimalsEvents() {
         return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).getNumbersOfOwnersAnimalsEvents();
     }
+
+    public List<MedicalEvent> searchMedicalEvents(String searchTerm) {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).searchMedicalEvents(searchTerm);
+    }
 }

@@ -16,7 +16,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="250.0" promptText="Keresés" style="-fx-control-inner-background: #444444;" />
+                   <TextField fx:id="searchField" onAction="#handleSearchAction" onKeyReleased="#handleSearchKeyReleased" prefHeight="25.0" prefWidth="250.0" promptText="Keresés" style="-fx-control-inner-background: #444444;" />
                   <Region prefHeight="69.0" prefWidth="147.0" HBox.hgrow="ALWAYS">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
