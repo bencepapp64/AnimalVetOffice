@@ -74,6 +74,14 @@ public class SpringDataFxApplication implements CommandLineRunner {
         return owner.orElse(null);
     }
 
+    public List<Owner> searchOwners(String searchTerm) { // <-- ÚJ
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            return ownerRepository.findAllWithAnimals();
+        }
+        String normalizedSearchTerm = "%" + searchTerm.toLowerCase().trim() + "%";
+        return ownerRepository.searchOwners(normalizedSearchTerm);
+    }
+
     public void saveAnimal(String name, String breed, Integer age, String diagnose, Integer ownerId) {
         Owner owner = getOwnerById(ownerId);
         Animal a = Animal.builder().name(name).breed(breed).age(age).diagnose(diagnose).owner(owner).build();

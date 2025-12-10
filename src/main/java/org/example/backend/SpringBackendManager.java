@@ -91,6 +91,11 @@ public class SpringBackendManager implements BackendManager {
     }
 
     @Override
+    public List<Owner> searchOwners(String searchTerm) {
+        return ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).searchOwners(searchTerm);
+    }
+
+    @Override
     public void saveMedicalEvent(Integer animalId, String type, LocalDate date, String name) {
         ((SpringDataFxApplication)ctx.getBean(SpringDataFxApplication.class)).saveMedicalEvent(animalId, type, date, name);
     }

@@ -2,6 +2,7 @@ package org.example.frontend;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.backend.model.Owner;
+import org.example.backend.model.OwnerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,6 +41,7 @@ public class TableContentController {
     @FXML
     private TableColumn<Owner, String> emailColumn;
 
+
     @FXML
     public void initialize() {
 
@@ -52,6 +56,25 @@ public class TableContentController {
         List<Owner> owners = backend.getOwners();
         ObservableList<Owner> data = FXCollections.observableArrayList(owners);
         tableView.getItems().setAll(data);
+        search();
+    }
+
+    public void search(){
+        String searchTerm = searchField.getText();
+        List<Owner> owners = backend.searchOwners(searchTerm);
+
+        ObservableList<Owner> data = FXCollections.observableArrayList(owners);
+        tableView.getItems().setAll(data);
+    }
+
+    @FXML
+    public void handleSearchAction() {
+        search();
+    }
+
+    @FXML
+    public void handleSearchKeyReleased() {
+        search();
     }
 
     @FXML
